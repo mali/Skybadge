@@ -1,0 +1,25 @@
+ttyStest est un module noyau qui m'a été largement inspiré par l'article de Pierre Ficheux paru
+dans GNU/Linux Magazine n°89 (Pilotes de périphériques en mode caractere).
+
+Il m'a permis de développer et tester skybadge sur mon portable qui ne possède pas de port serie.
+
+- Compilation du module : 
+make ( il vous faut les sources du noyau )
+
+- Chargement du module : 
+si vous utilisez udev, copiez 00-ttyStest.rules dans le répertoire des regles udev (chez moi /etc/udev/rules.d/)
+puis "insmod ttyStest.ko" pour charger le module.
+
+cela créera une entrée dans /dev :
+crw-rw---- 1 root users 10, 63 mar 18 16:56 /dev/ttyStest
+
+si vous n'utilisez pas udev vous devrez faire un "chgrp users /dev/ttyStest" pour avoir les droit d'acces sur ce nouveau peripherique sans etre root.
+
+- Utilisation du module : 
+
+Exemple avec skybadge, vous pouvez dans un terminal lancer "cat /dev/ttyStest" 
+Puis dans un autre terminal, lancer "skybadge -p /dev/ttyStest -m 'Hello World'"
+
+"demsg" ou "tail -f /var/log/kernel.log" pourront aussi vous interesser.
+
+Mali <laurent dot navet (at) gmail dot com>

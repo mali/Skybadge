@@ -1,0 +1,10 @@
+Pour compiler, installer ou desinstaller skybadge, utilisez les traditionnels,
+make, make install et make uninstall.
+
+Organisation du répertoire :
+
+A la racine : les sources de skybadge.
+Dans le répertoire man : le source de la page de manuel.
+Dans le répertoire ttyStest : un module kernel qui permet de simuler un port serie (utile pour developper sur un portable non equipe de port serie).
+
+Laurent Navet 'Mali' <laurent dot navet (at) gmail dot com>

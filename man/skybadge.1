@@ -1,0 +1,36 @@
+.TH skybadge 1 "16 Mars 2007" "Version 1.0" "Manuel utilsateur"
+.SH NOM
+skybadge \- Programmer un badge a LED SkyTec (http://fr.skytronic.com)
+.SH SYNOPSIS
+.B skybadge [\-p port] [\-v vitesse de defilement] [\-m message]
+.SH DESCRIPTION
+Le programme
+.B skybadge
+permet de programmer le badge lunimeux a LED de chez skytronic.
+.PP
+Seul l'argument -m est obligatoire.
+.SH OPTIONS
+.TP
+.B -p
+Port serie sur lequel est branche le badge. Valeur par defaut /dev/ttyS0.
+.TP
+.B -v
+Vitesse de defilement du message sur le badge entre 0 (la plus rapide) et 4 (la plus lente). Valeur par defaut 3.
+.TP
+.B -m
+Message a envoyer au badge. S'il est compose de plusieurs mots, encadrer le message entre " et ". Il sera automatiquement 
+tronque a 120 caracteres, qui est la valeur maximum acceptee par le badge.
+.SH EXEMPLES
+.TP
+Envoi de hello en vitesse normale au badge sur /dev/ttyS0:
+.B skybadge
+.B -m hello
+.TP
+Envoi de "Hello World" en vitesse rapide au badge sur /dev/com2:
+.B skybadge
+.B -m "Hello World"
+.B -v 2
+.B -p /dev/com2
+.SH AUTEURS
+Laurent Navet <laurent.navet(at)gmail.com>
+
